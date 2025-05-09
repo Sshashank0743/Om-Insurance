@@ -17,7 +17,6 @@ public class SharedPref extends SQLiteOpenHelper {
     private static final String KEY_EMAIL = "keyemail";
     private static final String COLUMN_OWNER_NAME = "owner_name";
     private static final String COLUMN_MOBILE_NUMBER = "mobile_number";
-    private static final String COLUMN_COUNTRY_CODE = "country_code";
     private static final String COLUMN_VEHICLE_NUMBER = "vehicle_number";
     private static final String COLUMN_INSURANCE_START = "insurance_start";
     private static final String COLUMN_INSURANCE_EXPIRY = "insurance_expiry";
@@ -44,7 +43,6 @@ public class SharedPref extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMN_OWNER_NAME + " TEXT, "
                 + COLUMN_MOBILE_NUMBER + " TEXT, "
-                + COLUMN_COUNTRY_CODE + " TEXT, "
                 + COLUMN_VEHICLE_NUMBER + " TEXT, "
                 + COLUMN_INSURANCE_START + " TEXT, "
                 + COLUMN_INSURANCE_EXPIRY + " TEXT, "
@@ -56,17 +54,16 @@ public class SharedPref extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < 2) {
-            db.execSQL("ALTER TABLE " + TABLE_VEHICLES + " ADD COLUMN " + COLUMN_PAYMENT_AMOUNT + " TEXT");
-        }
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_VEHICLES);
+        onCreate(db);
     }
 
-    public boolean insertVehicle(String ownerName, String mobileNumber, String countryCode, String vehicleNumber, String insuranceStart, String insuranceExpiry, String licenseExpiry, String paymentAmount, String pendingAmount) {
+    public boolean insertVehicle(String ownerName, String mobileNumber, String vehicleNumber, String insuranceStart, String insuranceExpiry,
+                                 String licenseExpiry, String paymentAmount, String pendingAmount) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_OWNER_NAME, ownerName);
         values.put(COLUMN_MOBILE_NUMBER, mobileNumber);
-        values.put(COLUMN_COUNTRY_CODE, countryCode);
         values.put(COLUMN_VEHICLE_NUMBER, vehicleNumber);
         values.put(COLUMN_INSURANCE_START, insuranceStart);
         values.put(COLUMN_INSURANCE_EXPIRY, insuranceExpiry);
@@ -94,8 +91,7 @@ public class SharedPref extends SQLiteOpenHelper {
                         cursor.getString(5),
                         cursor.getString(6),
                         cursor.getString(7),
-                        cursor.getString(8),
-                        cursor.getString(9)
+                        cursor.getString(8)
                 );
                 vehicleList.add(vehicle);
             } while (cursor.moveToNext());

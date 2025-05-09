@@ -3,8 +3,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/details_bg"
     android:orientation="vertical"
-    android:layout_marginTop="50dp"
     tools:context=".HomeActivity">
 
     <TextView
@@ -22,8 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:autoStart="true"
-        android:flipInterval="3000"
-        android:layout_marginTop="16dp"/>
+        android:flipInterval="3000" />
 
     <ImageView
         android:id="@+id/news_gif"

@@ -57,14 +57,13 @@ public class Details_Activity extends AppCompatActivity {
         if (intent.hasExtra("owner_name")) {
             String owner = intent.getStringExtra("owner_name");
             String mobile = intent.getStringExtra("mobile");
-            String country = intent.getStringExtra("country");
             String vehicleNumber = intent.getStringExtra("vehicle_number");
             String insuranceStart = intent.getStringExtra("insurance_start");
             String expiryDate = intent.getStringExtra("insurance_expiry");
             String licenseExpiry = intent.getStringExtra("license_expiry");
             String payment = intent.getStringExtra("payment_amount");
             String pending = intent.getStringExtra("pending_amount");
-            addVehicleToDatabase(owner, mobile, country, vehicleNumber, insuranceStart, expiryDate, licenseExpiry, payment, pending);
+            addVehicleToDatabase(owner, mobile, vehicleNumber, insuranceStart, expiryDate, licenseExpiry, payment, pending);
             loadVehicleData();
         }
 
@@ -89,7 +88,9 @@ public class Details_Activity extends AppCompatActivity {
             filteredList.addAll(vehicleList);
         } else {
             for (Vehicle vehicle : vehicleList) {
-                if (vehicle.getVehicleNumber().toLowerCase().contains(query.toLowerCase()) || vehicle.getLicenseExpiry().toLowerCase().contains(query)) {
+                if (vehicle.getVehicleNumber().toLowerCase().contains(query.toLowerCase()) ||
+                        vehicle.getLicenseExpiry().toLowerCase().contains(query.toLowerCase()) ||
+                        vehicle.getOwnerName().toLowerCase().contains(query.toLowerCase())) {
                     filteredList.add(vehicle);
                 }
             }
@@ -97,13 +98,12 @@ public class Details_Activity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private void addVehicleToDatabase(String owner, String mobile, String country, String vehicleNumber, String insuranceStart, String expiryDate,
+    private void addVehicleToDatabase(String owner, String mobile, String vehicleNumber, String insuranceStart, String expiryDate,
                                       String licenseExpiry, String payment, String pending) {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("owner", owner);
         values.put("mobile", mobile);
-        values.put("country", country);
         values.put("vehicle_number", vehicleNumber);
         values.put("insurance_start", insuranceStart);
         values.put("insurance_expiry", expiryDate);
@@ -125,15 +125,14 @@ public class Details_Activity extends AppCompatActivity {
             do {
                 String owner = cursor.getString(1);
                 String mobile = cursor.getString(2);
-                String country = cursor.getString(3);
-                String vehicleNumber = cursor.getString(4);
-                String insuranceStart = cursor.getString(5);
-                String expiryDate = cursor.getString(6);
-                String licenseExpiry = cursor.getString(7);
-                String payment = cursor.getString(8);
-                String pending = cursor.getString(9);
+                String vehicleNumber = cursor.getString(3);
+                String insuranceStart = cursor.getString(4);
+                String expiryDate = cursor.getString(5);
+                String licenseExpiry = cursor.getString(6);
+                String payment = cursor.getString(7);
+                String pending = cursor.getString(8);
 
-                Vehicle vehicle = new Vehicle(owner, mobile, country, vehicleNumber, insuranceStart, expiryDate, licenseExpiry, payment, pending);
+                Vehicle vehicle = new Vehicle(owner, mobile, vehicleNumber, insuranceStart, expiryDate, licenseExpiry, payment, pending);
                 vehicleList.add(vehicle);
             } while (cursor.moveToNext());
         }

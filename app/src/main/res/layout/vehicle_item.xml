@@ -33,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:background="@drawable/details_bg"
             android:layout_marginTop="35dp"
             android:orientation="vertical">
 
@@ -92,14 +91,13 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/country_code"
-                        android:layout_width="40dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:gravity="start"
                         android:maxLines="1"
                         android:padding="5dp"
-                        android:text=" "
+                        android:text="+91-"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
@@ -218,6 +216,41 @@
                         android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:text="⏳ Lincense Expiry:"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lincense_expiry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:gravity="start"
+                        android:maxLines="2"
+                        android:padding="5dp"
+                        android:text="desc"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -47,10 +47,10 @@ public class VehicleAdapter extends BaseAdapter {
         TextView marqueeText =  convertView.findViewById(R.id.marquee_text);
         TextView ownerName = convertView.findViewById(R.id.owner_name);
         TextView mobile = convertView.findViewById(R.id.mobile);
-        TextView country = convertView.findViewById(R.id.country_code);
         TextView vehicleNumber = convertView.findViewById(R.id.vehicle_number);
         TextView insuranceStart = convertView.findViewById(R.id.insurance_start);
         TextView insuranceExpiry = convertView.findViewById(R.id.insurance_expiry);
+        TextView licenseExpiry = convertView.findViewById(R.id.lincense_expiry);
         TextView payment = convertView.findViewById(R.id.payment_amount);
         TextView pending = convertView.findViewById(R.id.pending_amount);
 
@@ -67,13 +67,13 @@ public class VehicleAdapter extends BaseAdapter {
 
         Vehicle vehicle = vehicleList.get(position);
         ownerName.setText(vehicle.getOwnerName());
-        country.setText("+91 " + vehicle.getCountryCode());
         mobile.setText(vehicle.getMobileNumber());
         vehicleNumber.setText(vehicle.getVehicleNumber());
         payment.setText(vehicle.getPaymentAmount());
         pending.setText(vehicle.getPendingAmount());
         insuranceStart.setText(vehicle.getInsuranceStart());
         insuranceExpiry.setText(vehicle.getInsuranceExpiry());
+        licenseExpiry.setText(vehicle.getLicenseExpiry());
 
         return convertView;
     }

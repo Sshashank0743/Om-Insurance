@@ -3,7 +3,6 @@ package com.example.vimanagement.Model;
 public class Vehicle {
     private String ownerName;
     private String mobileNumber;
-    private String countryCode;
     private String vehicleNumber;
     private String insuranceStart;
     private String insuranceExpiry;
@@ -13,10 +12,9 @@ public class Vehicle {
 
     // Constructor
 
-    public Vehicle(String ownerName, String mobileNumber, String countryCode, String vehicleNumber, String insuranceStart, String insuranceExpiry, String licenseExpiry, String paymentAmount, String pendingAmount) {
+    public Vehicle(String ownerName, String mobileNumber, String vehicleNumber, String insuranceStart, String insuranceExpiry, String licenseExpiry, String paymentAmount, String pendingAmount) {
         this.ownerName = ownerName;
         this.mobileNumber = mobileNumber;
-        this.countryCode = countryCode;
         this.vehicleNumber = vehicleNumber;
         this.insuranceStart = insuranceStart;
         this.insuranceExpiry = insuranceExpiry;
@@ -39,14 +37,6 @@ public class Vehicle {
 
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
     }
 
     public String getVehicleNumber() {

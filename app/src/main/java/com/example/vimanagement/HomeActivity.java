@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         gifFlipper.setAutoStart(true);
-        gifFlipper.setFlipInterval(8000);
+        gifFlipper.setFlipInterval(3000);
         gifFlipper.startFlipping();
 
         // Load news gif as usual
