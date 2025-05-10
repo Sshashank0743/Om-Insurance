@@ -1,4 +1,11 @@
+---
 
+app:
+  name: Om-Insurance
+  version: 1.0.0
+  description: Personal Android app to manage vehicle insurance records locally.
+  
+---
 ---
 
 ## 🛠 What You Can Do With This App
@@ -36,3 +43,4 @@ This app is created for **personal use only**. It is not intended for commercial
 
 **Shashank Shukla**  
 [GitHub](https://github.com/Sshashank0743)
+[Email](dsshuklashashank@gmail.com)
