@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             String userEmail = email.getText().toString();
             String userPass = password.getText().toString();
 
-            if (userEmail.equals("shashank@gmail.com") && userPass.equals("shank@2026")) {
+            if (userEmail.equals("admin@gmail.com") && userPass.equals("admin@2026")) {
                 Intent intent = new Intent(MainActivity.this, Customer_Details_Activity.class);
                 startActivity(intent);
                 finish();
