@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.password);
 
         //isLoggedin
-//        boolean isLoggedIn = false;
-//        if (isLoggedIn) {
-//            Intent intent = new Intent(MainActivity.this, Customer_Details_Activity.class);
-//            startActivity(intent);
-//            finish();
-//        }
+        boolean isLoggedIn = false;
+        if (isLoggedIn) {
+            Intent intent = new Intent(MainActivity.this, Customer_Details_Activity.class);
+            startActivity(intent);
+            finish();
+        }
         //Button
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
